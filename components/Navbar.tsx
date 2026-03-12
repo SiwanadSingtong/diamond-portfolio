@@ -25,7 +25,7 @@ const menuList = [
 
 function Navbar() {
   return (
-    <nav className="px-6 md:px-20 py-4 border-b bg-primary border-white/50 sticky top-0 flex justify-between z-50">
+    <nav className="px-6 md:px-20 py-4 border-b bg-primary/80 border-white/50 fixed w-full top-0 flex justify-between z-50 backdrop-blur-md">
       {/* LOGO */}
       <a
         href="#"
