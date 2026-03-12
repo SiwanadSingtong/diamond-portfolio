@@ -32,7 +32,7 @@ function Navbar() {
         className="flex gap-2 items-center text-2xl font-bold tracking-wider uppercase text-white"
       >
         <span className="bg-blue-500 rounded-lg p-2">
-          <SquareTerminal />
+          <SquareTerminal size={22} strokeWidth={3.5} />
         </span>
         Diamond
       </a>
