@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div className="flex min-h-screen flex-col *:px-6 *:md:px-20 *:lg:px-36 *:xl:px-48 pb-16">
       {/* HERO */}
-      <section id="#" className="w-full">
+      <section id="home" className="w-full">
         <Hero />
       </section>
       {/* SKILLS */}
