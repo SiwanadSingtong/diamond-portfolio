@@ -2,7 +2,7 @@ import React from "react";
 
 function Hero() {
   return (
-    <div className="h-[calc(70vh)] flex flex-row items-end relative">
+    <div className="h-[calc(80vh)] md:h-[calc(70vh)] flex flex-row items-end relative">
       {/* LEFT */}
       <div className="flex flex-col gap-5">
         <p className="text-accent border rounded-full px-2 py-1 text-xs font-semibold w-fit uppercase bg-accent/10">

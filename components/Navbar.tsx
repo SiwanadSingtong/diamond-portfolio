@@ -1,8 +1,9 @@
 "use client";
 
-import { SquareTerminal } from "lucide-react";
+import { SquareTerminal, Menu, X } from "lucide-react";
 import gsap from "gsap";
 import ScrollToPlugin from "gsap/dist/ScrollToPlugin";
+import { useState } from "react";
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -30,6 +31,8 @@ const menuList = [
 ];
 
 function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
     if (path.startsWith("#") && !path.startsWith("http")) {
       e.preventDefault();
@@ -42,6 +45,7 @@ function Navbar() {
         });
       }
     }
+    setIsOpen(false);
   };
 
   return (
@@ -57,8 +61,9 @@ function Navbar() {
         </span>
         Diamond
       </a>
-      {/* MENU */}
-      <ul className="flex items-center gap-9">
+
+      {/* DESKTOP MENU */}
+      <ul className="hidden lg:flex items-center gap-9">
         {menuList.map((i, index) => (
           <a
             key={i.title}
@@ -66,12 +71,46 @@ function Navbar() {
             onClick={(e) => handleSmoothScroll(e, i.path)}
             target={i.path.startsWith("http") ? "_blank" : undefined}
             rel={i.path.startsWith("http") ? "noopener noreferrer" : undefined}
-            className={`${index === menuList.length - 1 && "bg-accent rounded-lg py-3 px-6 hover:text-white shadow-lg shadow-accent/20 hover:bg-accent/90"}  font-medium text-white cursor-pointer hover:text-accent transition-colors duration-150`}
+            className={`${
+              index === menuList.length - 1 &&
+              "bg-accent rounded-lg py-3 px-6 hover:text-white shadow-lg shadow-accent/20 hover:bg-accent/90"
+            } font-medium text-white cursor-pointer hover:text-accent transition-colors duration-150`}
           >
             {i.title}
           </a>
         ))}
       </ul>
+
+      {/* HAMBURGER BUTTON */}
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="lg:hidden flex items-center text-white hover:text-accent transition-colors"
+      >
+        {isOpen ? <X size={28} /> : <Menu size={28} />}
+      </button>
+
+      {/* MOBILE MENU */}
+      {isOpen && (
+        <div className="absolute top-full left-0 right-0 bg-primary/95 border-b border-white/50 backdrop-blur-md lg:hidden">
+          <ul className="flex flex-col gap-4 px-6 py-6">
+            {menuList.map((i, index) => (
+              <a
+                key={i.title}
+                href={i.path}
+                onClick={(e) => handleSmoothScroll(e, i.path)}
+                target={i.path.startsWith("http") ? "_blank" : undefined}
+                rel={i.path.startsWith("http") ? "noopener noreferrer" : undefined}
+                className={`${
+                  index === menuList.length - 1 &&
+                  "bg-accent rounded-lg py-3 px-6 hover:text-white shadow-lg shadow-accent/20 hover:bg-accent/90 text-center"
+                } font-medium text-white cursor-pointer hover:text-accent transition-colors duration-150`}
+              >
+                {i.title}
+              </a>
+            ))}
+          </ul>
+        </div>
+      )}
     </nav>
   );
 }

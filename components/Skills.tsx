@@ -13,7 +13,7 @@ function Skills() {
         </p>
       </div>
       {/* SKILLS */}
-      <div className="grid grid-cols-4 gap-5 my-6 *:rounded-lg *:border *:border-white/10 *:px-6 *:py-8 *:bg-[#101926] *:flex *:flex-col *:gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 my-6 *:rounded-lg *:border *:border-white/10 *:px-6 *:py-8 *:bg-[#101926] *:flex *:flex-col *:gap-4">
         {/* 1 */}
         <div className="group">
           <div className="bg-accent/10 w-12 h-12 p-3 rounded-md text-accent group-hover:bg-accent group-hover:text-white transition-colors">
