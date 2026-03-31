@@ -25,6 +25,13 @@ const projects = [
     desc: "A comprehensive tutorial project demonstrating advanced animation techniques using GSAP. Showcasing timeline animations, scroll-triggered effects, and interactive motion design.",
     img: "/gsap.png",
   },
+  {
+    id: 4,
+    title: "Todo List",
+    link: "https://github.com/SiwanadSingtong/todo-tt",
+    desc: "A comprehensive tutorial project demonstrating advanced animation techniques using GSAP. Showcasing timeline animations, scroll-triggered effects, and interactive motion design.",
+    img: "/todo.png",
+  },
 ];
 
 function Projects() {
@@ -48,7 +55,7 @@ function Projects() {
         </Link>
       </div>
       {/* PROJECTS */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-6">
         {projects.map((p) => (
           <Link
             href={p.link}
